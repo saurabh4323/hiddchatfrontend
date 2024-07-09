@@ -38,8 +38,8 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <div className="form-container">
+    <div className="containers">
+      <div className="form-containers">
         <div className="brand">
           {" "}
           <img src="chatlogo.png" alt=""></img>
