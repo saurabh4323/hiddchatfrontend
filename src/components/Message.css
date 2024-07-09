@@ -1,0 +1,41 @@
+/* Message.css */
+
+.chat {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.chat-end {
+  justify-content: flex-end;
+}
+
+.chat-start {
+  justify-content: flex-start;
+}
+
+.chat-image {
+  margin-right: 8px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.profile-photo {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.chat-header {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.chat-bubble {
+  max-width: 280px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  background-color: #e5e7eb; /* gray-200 */
+  color: black;
+}

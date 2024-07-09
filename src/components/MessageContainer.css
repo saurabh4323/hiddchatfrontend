@@ -1,0 +1,126 @@
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 550px;
+  border: 3px solid #fff;
+}
+
+.header {
+  display: flex;
+  gap: 0.5rem; 
+  align-items: center;
+  background-color: #18181b; 
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+ .avatar {
+  position: relative;
+}
+
+.avatar.online::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #34D399; 
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.avatar img {
+  width: 3rem; 
+  border-radius: 50%;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.profile-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem; 
+}
+
+.centered-message {
+  border: 3px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 550px;
+}
+
+.centered-message .main-text {
+  font-size: 2.25rem; 
+  color: white;
+  font-weight: bold;
+}
+
+.centered-message .sub-text {
+  font-size: 40px;
+  color: #ffc8dd;
+  font-weight: bold;
+}
+
+.user{
+  color: #c1121f;
+}  
+
+
+/* Responsive Design for MessageContainer */
+@media (max-width: 768px) {
+  .message-container, .centered-message {
+    min-width: 50%;
+  }
+
+  .header, .profile-details {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .avatar img {
+    width: 2rem;
+  }
+
+  .centered-message .main-text {
+    font-size: 1.75rem; /* Tailwind: text-2xl */
+  }
+
+  .centered-message .sub-text {
+    font-size: 1.5rem; /* Tailwind: text-xl */
+  }
+
+  .brad {
+    margin-left: 0;
+  }
+
+  .brad img {
+    height: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.25rem 0.5rem; /* Tailwind: px-2 py-1 */
+  }
+
+  .avatar img {
+    width: 1.5rem;
+  }
+
+  .centered-message .main-text {
+    font-size: 1.25rem; /* Tailwind: text-xl */
+  }
+
+  .centered-message .sub-text {
+    font-size: 1rem; /* Tailwind: text-lg */
+  }
+}

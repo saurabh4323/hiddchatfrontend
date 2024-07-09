@@ -1,0 +1,69 @@
+
+
+.user-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.user-container:hover {
+  background-color: blue; 
+  color: black;
+}
+
+.user-container.selected {
+  background-color: blue;
+  color: black;
+}
+
+.avatar {
+  width: 48px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.avatar.online::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: green;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+  border: 2px solid white;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+ 
+
+/* Responsive Design for OtherUser */
+@media (max-width: 768px) {
+  .user-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .avatar {
+    width: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-container {
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .avatar {
+    width: 24px;
+  }
+}

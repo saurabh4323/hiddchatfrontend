@@ -1,0 +1,35 @@
+/* styles.css */
+.custom-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100%; 
+  min-height: 450px; 
+  max-height: 550px; 
+  border-radius: 0.5rem; 
+  overflow: hidden;
+  background-color: #000; 
+  background-clip: padding-box; 
+  backdrop-filter: blur(10px); 
+  background-opacity: 0; 
+}
+.home{
+  align-items: center;
+}
+
+
+/* Responsive Design for OtherUser */
+@media (max-width: 768px) {
+ .custom-container {
+  
+  
+}
+.home{
+  align-items: center;
+}
+
+}
+
+@media (max-width: 480px) {
+ 
+}

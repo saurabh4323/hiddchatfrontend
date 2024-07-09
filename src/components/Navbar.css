@@ -1,0 +1,42 @@
+.brad{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ justify-content: center;
+  margin-bottom: 20px;
+  
+
+  img{
+height: 4rem;
+  }
+}
+@media (max-width: 768px) {
+  .brad{
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+    margin-bottom: 20px;
+    
+  
+    img{
+  height: 4rem;
+
+  }
+  
+}
+}
+@media (max-width: 480px) {
+  .brad{
+    display: flex;
+    align-items: center;
+    
+    margin-bottom: 20px;
+    
+  
+    img{
+  height: 4rem;
+    
+  }
+  
+}
+}
