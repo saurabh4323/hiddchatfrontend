@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setAuthUser } from "../redux/userSlice";
-import { BASE_URL } from "..";
+import { BASE_URL } from "../config";
 import "./Login.css";
 
 const Login = () => {
@@ -17,6 +17,7 @@ const Login = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    console.log("Submitting login form with:", user); // Check if this log appears
     try {
       const res = await axios.post(`${BASE_URL}/api/v1/user/login`, user, {
         headers: {
@@ -24,32 +25,25 @@ const Login = () => {
         },
         withCredentials: true,
       });
-      navigate("/");
-      console.log(res);
-      dispatch(setAuthUser(res.data));
+      console.log("Login response:", res.data); // Check if this log appears
+      navigate("/"); // Redirect after successful login
+      dispatch(setAuthUser(res.data)); // Dispatch action to set user data in Redux
+      toast.success("Login successful");
     } catch (error) {
-      toast.error(error.response.data.message);
-      console.log(error);
+      toast.error(error.response?.data?.message || "An error occurred");
+      console.error("Login error:", error);
     }
-    setUser({
-      username: "",
-      password: "",
-    });
   };
 
   return (
-    <div className="containers">
-      <div className="form-containers">
+    <div className="container">
+      <div className="form-container">
         <div className="brand">
-          {" "}
-          <img src="chatlogo.png" alt=""></img>
+          <img src="chatlogo.png" alt="Chat Logo" />
           <h1 className="signup-heading">HIDDCHAT</h1>
         </div>
         <form onSubmit={onSubmitHandler}>
-          <div>
-            <label className="label">
-              <span className="label-text"></span>
-            </label>
+          <div className="form-group">
             <input
               value={user.username}
               onChange={(e) => setUser({ ...user, username: e.target.value })}
@@ -58,10 +52,7 @@ const Login = () => {
               placeholder="Username"
             />
           </div>
-          <div>
-            <label className="label">
-              <span className="label-text"> </span>
-            </label>
+          <div className="form-group">
             <input
               value={user.password}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
@@ -78,8 +69,7 @@ const Login = () => {
           <p className="link-text">
             Don't have an account?{" "}
             <span>
-              {" "}
-              <Link to="/signup"> signup </Link>
+              <Link to="/signup">Signup</Link>
             </span>
           </p>
         </form>
