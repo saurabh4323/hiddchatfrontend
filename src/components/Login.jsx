@@ -14,26 +14,26 @@ const Login = () => {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
+const onSubmitHandler = async (e) => {
+  e.preventDefault();
+  console.log("Submitting login form with:", user);
 
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    console.log("Submitting login form with:", user); // Check if this log appears
-    try {
-      const res = await axios.post(`${BASE_URL}/api/v1/user/login`, user, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
-      console.log("Login response:", res.data); // Check if this log appears
-      navigate("/"); // Redirect after successful login
-      dispatch(setAuthUser(res.data)); // Dispatch action to set user data in Redux
-      toast.success("Login successful");
-    } catch (error) {
-      toast.error(error.response?.data?.message || "An error occurred");
-      console.error("Login error:", error);
-    }
-  };
+  try {
+    const res = await axios.post(`${BASE_URL}/api/v1/user/login`, user, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true, // Ensure credentials are sent (cookies)
+    });
+    console.log("Login response:", res.data);
+    navigate("/"); // Redirect after successful login
+    dispatch(setAuthUser(res.data)); // Dispatch action to set user data in Redux
+    toast.success("Login successful");
+  } catch (error) {
+    toast.error(error.response?.data?.message || "An error occurred");
+    console.error("Login error:", error);
+  }
+};
 
   return (
     <div className="container">
