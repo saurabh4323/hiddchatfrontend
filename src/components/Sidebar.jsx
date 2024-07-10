@@ -86,7 +86,7 @@ import {
   setSelectedUser,
 } from "../redux/userSlice";
 import { setMessages } from "../redux/messageSlice";
-import { BASE_URL } from "..";
+import { BASE_URL } from "../config";
 import "./Sidebar.css";
 import useGetOtherUsers from "../hooks/useGetOtherUsers";
 
