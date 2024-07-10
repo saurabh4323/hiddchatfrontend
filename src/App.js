@@ -81,7 +81,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer";
-import { BASE_URL } from ".";
+import { BASE_URL } from "./config";
 import "./App.css";
 import "./index.css";
 
