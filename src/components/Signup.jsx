@@ -21,31 +21,7 @@ const Signup = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post(
-        "/api/v1/user/register", // No need for full URL since baseURL is set
-        user,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (res.data.success) {
-        navigate("/login");
-        toast.success(res.data.message);
-      }
-    } catch (error) {
-      toast.error(error.response.data.message);
-      console.error(error);
-    }
-    setUser({
-      fullName: "",
-      username: "",
-      password: "",
-      confirmPassword: "",
-      gender: "",
-    });
+    
   };
 
   return (
