@@ -86,31 +86,31 @@ import "./App.css";
 import "./index.css";
 
 function App() {
-  const authUser = useSelector((store) => store.user.authUser);
-  const socket = useSelector((store) => store.socket.socket);
-  const dispatch = useDispatch();
+  // const authUser = useSelector((store) => store.user.authUser);
+  // const socket = useSelector((store) => store.socket.socket);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (authUser) {
-      const socketio = io(`${BASE_URL}`, {
-        query: {
-          userId: authUser._id,
-        },
-      });
-      dispatch(setSocket(socketio));
+  // useEffect(() => {
+  //   if (authUser) {
+  //     const socketio = io(`${BASE_URL}`, {
+  //       query: {
+  //         userId: authUser._id,
+  //       },
+  //     });
+  //     dispatch(setSocket(socketio));
 
-      socketio.on("getOnlineUsers", (onlineUsers) => {
-        dispatch(setOnlineUsers(onlineUsers));
-      });
+  //     socketio.on("getOnlineUsers", (onlineUsers) => {
+  //       dispatch(setOnlineUsers(onlineUsers));
+  //     });
 
-      return () => {
-        socketio.close();
-      };
-    } else if (socket) {
-      socket.close();
-      dispatch(setSocket(null));
-    }
-  }, [authUser, dispatch]);
+  //     return () => {
+  //       socketio.close();
+  //     };
+  //   } else if (socket) {
+  //     socket.close();
+  //     dispatch(setSocket(null));
+  //   }
+  // }, [authUser, dispatch]);
 
   return (
     <BrowserRouter>
